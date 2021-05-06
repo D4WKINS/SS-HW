@@ -8,8 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <Container>
+        <Warning type='warning' />
     <BookList text="Do you like mah styleeee?!" /> 
-    <Warning type='warning' />
     </Container>
   );
 }

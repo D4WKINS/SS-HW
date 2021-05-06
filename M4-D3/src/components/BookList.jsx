@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import { Row, Form, FormControl, Button } from 'react-bootstrap'
+import { Row, Form, FormControl, Button, CardDeck } from 'react-bootstrap'
 import BookListItem from './BookListItem'
+import Logo from './Logo'
 
 class BookList extends Component {
     
@@ -30,8 +31,9 @@ render(){
             return(
                 <> 
                 <Row>
-                <h1>{this.props.text}</h1> 
-                    <Form inline>
+                {/* <h1>{this.props.text}</h1>  */}
+                <Logo />
+                    <Form inline className="ml-md-auto">
                         <FormControl 
                         type="text" 
                         placeholder="Search" 
@@ -42,12 +44,12 @@ render(){
                         <Button variant="outline-success">Search</Button>
                     </Form>
                 </Row>
-                <Row>
+                <CardDeck className ="mt-5">
                     {this.state.books
                     .filter(book => book.title.toLowerCase().indexOf(this.state.search) !== -1 || book.category.toLowerCase().indexOf(this.state.search) !== -1)
                     .map(book =>
                          <BookListItem key={book.asin} bookInfo={book} />)}
-                </Row>
+                </CardDeck>
                 </>
              ) // {this.state.books.map(book => <img key = {book.asin} src={book.img} style={{width:"200px"}}/>)}
              // This code block retreives object data from each array item and places it into HTML using dot notation
